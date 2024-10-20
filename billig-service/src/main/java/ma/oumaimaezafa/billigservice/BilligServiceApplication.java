@@ -33,7 +33,6 @@ public class BilligServiceApplication {
     CommandLineRunner start(BillRepository billRepository, ProductItemRepository productItemRepository, CustomerRestClient customerRestClient, ProductItemRestClient productItemRestClient){
         return  args -> {
             //ajouter une facture
-
              Customer customer=customerRestClient.getCustomerById(1L);
              Bill bill=billRepository.save(new Bill(null,new Date(),null,customer.getId(),null));
              PagedModel<Product> productPageModel=productItemRestClient.pageProducts(0,3);
